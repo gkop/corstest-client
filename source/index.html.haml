@@ -1,0 +1,15 @@
+---
+title: Test your CORS! corstest.com
+---
+
+%h1 Corstest.com
+
+%table{ng: {controller: "TestCtrl", init: "run_tests()"}}
+  %thead
+    %tr
+      %th Feature
+      %th Result
+  %body
+    %tr{ng: {repeat: "test in tests"}}
+      %td {{test.display_name}}
+      %td {{test.result}}
