@@ -4,7 +4,7 @@ class SimpleCorsTest
     @display_name = "Simple CORS"
     @$http = $http
 
-  run: (callback) ->
+  run: ->
     a = Math.floor((Math.random() * 100000) + 1)
     b = Math.floor((Math.random() * 100000) + 1)
     @$http(
@@ -15,9 +15,7 @@ class SimpleCorsTest
         @result = "passed"
       else
         @result = "failed"
-      callback(@) if callback
     ).error (data, status, headers, config) =>
       @result = "failed"
-      callback(@) if callback
 
 CorsTest.all_tests.push(SimpleCorsTest)

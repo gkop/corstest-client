@@ -6,7 +6,9 @@ app.controller("TestCtrl", ["$scope", "$http", ($scope, $http) ->
 
   $scope.run_tests = ->
     $scope.tests.forEach (test) ->
-      test.run()
+      test.run(->
+        $scope.$apply()
+      )
 
   window.foobar = $scope
 ])
