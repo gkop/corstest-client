@@ -13,3 +13,16 @@ title: Test your CORS! corstest.com
     %tr{ng: {repeat: "test in tests"}}
       %td {{test.display_name}}
       %td {{test.result}}
+
+%h2 About
+
+%p
+  This is a tool for testing arbitrary browsers' support for various modern communications protocols and relevant combinations of protocols. It is for answering questions like "Can I use cross-domain Websockets in phantomjs?" or "Can I use EventSource combined with CORS on IE11?" that you can't figure out from <a href="http://caniuse.com/">Can I use</a> (which is otherwise a great resource).
+
+%p Please contribute feedback and check out the code on Github:
+
+%ul
+  %li
+    %a{href: "https://github.com/gkop/corstest-client"}https://github.com/gkop/corstest-client
+  %li
+    %a{href: "https://github.com/gkop/corstest-server"}https://github.com/gkop/corstest-server
