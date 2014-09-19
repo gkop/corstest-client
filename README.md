@@ -1,5 +1,7 @@
 # Corstest.com client
 
+Live demo: [www.corstest.com](http://www.corstest.com)
+
 ## Run a development server
 
 ```bash
