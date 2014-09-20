@@ -36,4 +36,7 @@ class EventSourceTest
         set_result("failed")
     , false)
 
+    source.onerror = ->
+      set_result("failed")
+
 CorsTest.all_tests.push(EventSourceTest)
