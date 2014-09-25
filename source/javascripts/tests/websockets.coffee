@@ -4,6 +4,10 @@ class WebsocketsTest
     @display_name = "Cross-origin Websockets"
 
   run: (callback) ->
+    if window.location.protocol.match(/https/)
+      @result = "not run"
+      return
+
     socket = new Phoenix.Socket("ws://corstest-api.coshx.com:4000/tests/websockets")
 
     socket.join "test_channel", "stewiecutedog", {}, (channel) =>

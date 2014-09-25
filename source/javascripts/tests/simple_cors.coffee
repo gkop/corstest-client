@@ -5,6 +5,10 @@ class SimpleCorsTest
     @$http = $http
 
   run: ->
+    if window.location.protocol.match(/https/)
+      @result = "not run"
+      return
+
     a = Math.floor((Math.random() * 100000) + 1)
     b = Math.floor((Math.random() * 100000) + 1)
     @$http(

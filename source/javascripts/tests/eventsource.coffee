@@ -4,6 +4,10 @@ class EventSourceTest
     @display_name = "EventSource CORS"
 
   run: (callback) ->
+    if window.location.protocol.match(/https/)
+      @result = "not run"
+      return
+
     a = Math.floor((Math.random() * 100000) + 1)
     b = Math.floor((Math.random() * 100000) + 1)
     source = new EventSource("http://corstest-api.coshx.com:4000/tests/eventsource?a=#{a}&b=#{b}")
