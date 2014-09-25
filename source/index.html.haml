@@ -4,6 +4,12 @@ title: Test your CORS! corstest.com
 
 %h1 Corstest.com
 
+%p{ng: {controller: "ProtocolCtrl"}}
+  %a{ng: {href: "{{current_url('https')}}", hide: "is_https()"}}
+    Switch to HTTPS
+  %a{ng: {href: "{{current_url('http')}}", show: "is_https()"}}
+    Switch to HTTP
+
 %table{ng: {controller: "TestCtrl", init: "run_tests()"}}
   %thead
     %tr
