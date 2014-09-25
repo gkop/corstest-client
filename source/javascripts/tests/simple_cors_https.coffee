@@ -1,4 +1,4 @@
-class SimpleCorsTest
+class SimpleCorsHttpsTest
   constructor: ($http) ->
     @result = "pending"
     @display_name = "Simple CORS over HTTPS"
@@ -16,6 +16,6 @@ class SimpleCorsTest
       else
         @result = "failed"
     ).error (data, status, headers, config) =>
-      @result = "not implemented yet on server"
+      @result = "failed"
 
-CorsTest.all_tests.push(SimpleCorsTest)
+CorsTest.all_tests.push(SimpleCorsHttpsTest)
