@@ -1,6 +1,6 @@
 # Corstest.com client
 
-Live demo: [www.corstest.com](http://www.corstest.com)
+Live demo: [www.corstest.com](https://www.corstest.com)
 
 ## Run a development server
 
