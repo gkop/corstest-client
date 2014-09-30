@@ -1,12 +1,11 @@
-class SimpleCorsSpdyTest
-  constructor: ($http) ->
-    @result = "pending"
+class SimpleCorsSpdyTest extends Test
+  constructor: ->
+    super
     @display_name = "Simple CORS over SPDY"
-    @$http = $http
 
   run: ->
-    a = Math.floor((Math.random() * 100000) + 1)
-    b = Math.floor((Math.random() * 100000) + 1)
+    [a, b] = super
+
     @$http(
       method: "GET"
       url: "https://corstest-api.coshx.com:4002/?a=#{a}&b=#{b}"

@@ -2,14 +2,16 @@ app = angular.module("corsTest", [])
 
 app.controller("TestCtrl", ["$scope", "$http", ($scope, $http) ->
   $scope.tests = CorsTest.all_tests.map (test_class) ->
-    new test_class($http)
+    new test_class($http, -> $scope.$apply() )
 
   $scope.run_tests = ->
     #$scope.tests.slice(0,1).forEach (test) ->
     $scope.tests.forEach (test) ->
-      test.run(->
-        $scope.$apply()
-      )
+      # Don't run insecure tests from HTTPS page,
+      # because they may succeed but "break" the padlock icon
+      if window.location.protocol == "http:" ||
+         test.display_name.match(/HTTPS|TLS|SPDY/)
+        test.run()
 
   window.foobar = $scope
 

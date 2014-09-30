@@ -1,15 +1,11 @@
-class EventSourceTest
+class EventSourceTest extends Test
   constructor: ->
-    @result = "pending"
+    super
     @display_name = "EventSource CORS"
 
-  run: (callback) ->
-    if window.location.protocol.match(/https/)
-      @result = "not run"
-      return
+  run: ->
+    [a, b] = super
 
-    a = Math.floor((Math.random() * 100000) + 1)
-    b = Math.floor((Math.random() * 100000) + 1)
     source = new EventSource("http://corstest-api.coshx.com:4000/tests/eventsource?a=#{a}&b=#{b}")
     echoed_a = null
     echoed_b = null
@@ -17,7 +13,7 @@ class EventSourceTest
     set_result = (result_string) =>
       if @result == "pending"
         @result = result_string
-        callback(@) if callback
+        @callback()
         source.close()
 
     source.addEventListener("a", (event) ->

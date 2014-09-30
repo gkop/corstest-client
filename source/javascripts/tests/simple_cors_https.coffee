@@ -1,12 +1,11 @@
-class SimpleCorsHttpsTest
-  constructor: ($http) ->
-    @result = "pending"
+class SimpleCorsHttpsTest extends Test
+  constructor: ->
+    super
     @display_name = "Simple CORS over HTTPS"
-    @$http = $http
 
   run: ->
-    a = Math.floor((Math.random() * 100000) + 1)
-    b = Math.floor((Math.random() * 100000) + 1)
+    [a, b] = super
+
     @$http(
       method: "GET"
       url: "https://corstest-api.coshx.com:4001/tests/simple_cors?a=#{a}&b=#{b}"

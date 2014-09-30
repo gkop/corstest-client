@@ -1,11 +1,11 @@
-class EventSourceHttpsTest
+class EventSourceHttpsTest extends Test
   constructor: ->
-    @result = "pending"
+    super
     @display_name = "EventSource CORS over HTTPS"
 
-  run: (callback) ->
-    a = Math.floor((Math.random() * 100000) + 1)
-    b = Math.floor((Math.random() * 100000) + 1)
+  run: ->
+    [a, b] = super
+
     source = new EventSource("https://corstest-api.coshx.com:4001/tests/eventsource?a=#{a}&b=#{b}")
     echoed_a = null
     echoed_b = null
@@ -13,7 +13,7 @@ class EventSourceHttpsTest
     set_result = (result_string) =>
       if @result == "pending"
         @result = result_string
-        callback(@) if callback
+        @callback()
         source.close()
 
     source.addEventListener("a", (event) ->
