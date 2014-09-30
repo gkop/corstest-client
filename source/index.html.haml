@@ -15,10 +15,20 @@ title: Test your CORS! corstest.com
     %tr
       %th Feature
       %th Result
+      %th
+      %th
+      %th
+      %th
   %body
     %tr{ng: {repeat: "test in tests"}}
       %td {{test.display_name}}
       %td {{test.result}}
+      %td
+      %td
+      %td
+      %td
+        %a{href: "", ng: {show: "test.result != 'pending'", click: "test.run()"}}
+          {{test.result == "not run" ? "run" : "retry"}}
 
 %h2 About
 
