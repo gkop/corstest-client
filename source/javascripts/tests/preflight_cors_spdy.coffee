@@ -12,7 +12,7 @@ class PreflightCorsSpdyTest extends Test
       url: @url
       headers: {"x-a": a, "x-b": b}
     ).success((data, status, headers, config) =>
-      if data.sum == a+b
+      if data.sum == a+b && data.spdy == true
         @result = "passed"
       else
         @result = "failed"
